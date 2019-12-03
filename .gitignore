@@ -1,0 +1,10 @@
+*.key
+*.srl
+*.csr
+*.crt
+*.o
+__pycache__/
+*.swp
+*.pem
+tags
+tmp/
