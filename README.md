@@ -1,1 +1,1 @@
-This repository contains code (and associated data) for benchmarking post-quantum cryptography in TLS 1.3.
+This repository contains code (and associated data) for benchmarking post-quantum cryptography in TLS 1.3. The `emulation_exp` and `internet_exp` folders contain code and data related to the emulated and internet experiments, respectively.
