@@ -1,0 +1,48 @@
+This is ApacheBench, Version 2.3 <$Revision$>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 23.101.215.217 (be patient).....done
+
+
+Server Software:        nginx/1.17.5
+Server Hostname:        23.101.215.217
+Server Port:            4433
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        ECDH P-256 256 bits
+
+Document Path:          /index10k.html
+Document Length:        10000 bytes
+
+Concurrency Level:      1
+Time taken for tests:   120.325 seconds
+Complete requests:      151
+Failed requests:        0
+Total transferred:      1545636 bytes
+HTML transferred:       1510000 bytes
+Requests per second:    1.25 [#/sec] (mean)
+Time per request:       796.857 [ms] (mean)
+Time per request:       796.857 [ms] (mean, across all concurrent requests)
+Transfer rate:          12.54 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:      398  399   0.5    399     401
+Processing:   397  397   0.6    398     402
+Waiting:      397  397   0.6    398     402
+Total:        795  797   1.0    797     801
+WARNING: The median and mean for the processing time are not within a normal deviation
+        These results are probably not that reliable.
+WARNING: The median and mean for the waiting time are not within a normal deviation
+        These results are probably not that reliable.
+
+Percentage of the requests served within a certain time (ms)
+  50%    797
+  66%    797
+  75%    798
+  80%    798
+  90%    798
+  95%    798
+  98%    798
+  99%    799
+ 100%    801 (longest request)
