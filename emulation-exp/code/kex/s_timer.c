@@ -131,8 +131,8 @@ int main(int argc, char* argv[])
             /* Retry since at high packet loss rates,
              * the connect() syscall fails sometimes.
              * Non-retryable errors are caught by manual
-             * inspection of logs. This isn't more robust
-             * since its not intended for production */
+             * inspection of logs, which has sufficed
+             * for our purposes */
             continue;
         }
 
@@ -149,14 +149,11 @@ int main(int argc, char* argv[])
         measurements++;
     }
 
-    for(size_t i = 0; i < measurements_to_make; i++)
+    for(size_t i = 0; i < measurements - 1; i++)
     {
-        printf("%f", handshake_times_ms[i]);
-        if(i != measurements_to_make - 1)
-        {
-            printf(",");
-        }
+        printf("%f,", handshake_times_ms[i]);
     }
+    printf("%f", handshake_times_ms[measurements - 1]);
 
     ret = 0;
     goto end;

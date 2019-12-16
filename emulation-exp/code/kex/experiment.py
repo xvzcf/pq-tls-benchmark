@@ -32,16 +32,27 @@ def run_subprocess(command, working_dir='.', env=None, expected_returncode=0):
     return result.stdout.decode('utf-8')
 
 def change_qdisc(ns, dev, pkt_loss, delay, jitter='0ms', distribution='normal'):
-    run_subprocess(
-        [
-            'ip', 'netns', 'exec', ns,
-            'tc', 'qdisc', 'change',
-            'dev', dev, 'root', 'netem',
-            'limit', '1000',
-            'loss', '{0}%'.format(pkt_loss),
-            'delay', delay, #jitter, 'distribution', distribution,
-            'rate', '1000mbit'
-        ])
+    if pkt_loss == 0:
+        run_subprocess(
+            [
+                'ip', 'netns', 'exec', ns,
+                'tc', 'qdisc', 'change',
+                'dev', dev, 'root', 'netem',
+                'limit', '1000',
+                'delay', delay, #jitter, 'distribution', distribution,
+                'rate', '1000mbit'
+            ])
+    else:
+        run_subprocess(
+            [
+                'ip', 'netns', 'exec', ns,
+                'tc', 'qdisc', 'change',
+                'dev', dev, 'root', 'netem',
+                'limit', '1000',
+                'loss', '{0}%'.format(pkt_loss),
+                'delay', delay, #jitter, 'distribution', distribution,
+                'rate', '1000mbit'
+            ])
 
 def handshake_timer(kex_alg, measurements):
     command = ['ip', 'netns', 'exec', 'cli_ns',

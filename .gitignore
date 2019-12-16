@@ -1,10 +1,7 @@
-*.key
-*.srl
-*.csr
-*.crt
 *.o
-__pycache__/
 *.swp
-*.pem
 tags
-tmp/
+*.pem
+emulation-exp/code/tmp/
+emulation-exp/code/kex/data
+emulation-exp/code/sig/data
