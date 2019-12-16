@@ -5,7 +5,7 @@ The results are separated in the east/, central/, europe/, australia/ folders. I
     - perl ../ab_perf_kex.pl <server_ip> na 1 120 > <server>_kex.out &
     - perl ../ab_perf_sig.pl <server_ip> na 1 120 > <server>_sig.out &
 
-The ab_perf_[kex|sig].pl script uses a modified apache benchmarking (ab) tool (to support TLS 1.3, add PQC, add server cert validation), taken from https://github.com/christianpaquin/httpd/tree/cp-enable-tls13-ab (built using the optimized OQS-OpenSSL 1.1.1 fork). The resulting output files are in the corresponding VM folders.
+The ab_perf_[kex|sig].pl script uses a modified apache benchmarking (ab) tool (to support TLS 1.3, add PQC, add server cert validation), taken from https://github.com/christianpaquin/httpd/tree/cp-enable-tls13-ab (built using the optimized OQS-OpenSSL 1.1.1 fork; patch is archived in the ab.c.2019-11-27.patch file). The resulting output files are in the corresponding VM folders.
 
 To extract data for comparison and plotting: 
 For KEX (replace "50" by "95" or other percentile for other data):
