@@ -159,7 +159,7 @@ int main(int argc, char* argv[])
     goto end;
 
 ossl_error:
-    printf("OpenSSL error.\n");
+    fprintf(stderr, "Unrecoverable OpenSSL error.\n");
     ERR_print_errors_fp(stderr);
 end:
     SSL_CTX_free(ssl_ctx);

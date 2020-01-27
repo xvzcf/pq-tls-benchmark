@@ -17,7 +17,7 @@ make s_timer.o
 ##########################
 # Setup network namespaces
 ##########################
-./setup_ns.sh
+${ROOT}/setup_ns.sh
 
 ##########################
 # Generate ECDSA P-256 cert

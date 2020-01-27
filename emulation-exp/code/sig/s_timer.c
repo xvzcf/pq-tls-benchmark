@@ -109,7 +109,7 @@ int main(int argc, char* argv[])
     {
         goto ossl_error;
     }
-    ret = SSL_CTX_set1_groups_list(ssl_ctx, "p256-kyber512_90s");
+    ret = SSL_CTX_set1_groups_list(ssl_ctx, "p256_kyber512_90s");
     if (ret != 1)
     {
         goto ossl_error;
@@ -161,7 +161,7 @@ int main(int argc, char* argv[])
     goto end;
 
 ossl_error:
-    printf("OpenSSL error.\n");
+    fprintf(stderr, "Unrecoverable OpenSSL error.\n");
     ERR_print_errors_fp(stderr);
 end:
     SSL_CTX_free(ssl_ctx);

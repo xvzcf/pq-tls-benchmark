@@ -4,6 +4,7 @@ set -x
 ##########################
 # Setup network namespaces
 ##########################
+
 SERVER_VETH_LL_ADDR=00:00:00:00:00:02
 SERVER_NS=srv_ns
 SERVER_VETH=srv_ve

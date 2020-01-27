@@ -5,6 +5,8 @@ apt install build-essential \
             autoconf \
             automake \
             libtool \
+            cmake \
+            ninja-build \
             libssl-dev \
             libpcre3-dev \
             wget;
@@ -14,15 +16,14 @@ NGINX_VERSION=1.17.5
 mkdir -p tmp && cd tmp
 ROOT=$(pwd)
 
-git clone --single-branch --branch oqs-optimized https://github.com/open-quantum-safe/liboqs liboqs
-git clone --single-branch --branch oqs-ossl-111-optimized https://github.com/open-quantum-safe/openssl openssl
+git clone --single-branch --branch pq-tls-experiment https://github.com/xvzcf/liboqs
+git clone --single-branch --branch pq-tls-experiment https://github.com/xvzcf/openssl
 
 # build liboqs
 cd liboqs
-autoreconf -i
-./configure --prefix=${ROOT}/openssl/oqs --enable-shared=no
-make -j
-make install;
+mkdir build && cd build
+cmake -GNinja -DCMAKE_INSTALL_PREFIX=${ROOT}/openssl/oqs ..
+ninja && ninja install
 
 # build nginx (which builds OQS-OpenSSL)
 cd ${ROOT}

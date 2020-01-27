@@ -13,7 +13,7 @@ ip netns exec srv_ns ${NGINX_APP} -s stop
 ##########################
 set -e
 
-for SIG in "ecdsap256" "dilithium2" "picnicl1fs" "qteslapi";
+for SIG in "ecdsap256" "dilithium2" "qteslapi" "picnicl1fs";
 do
     # Ask nginx to use ${SIG} cert and key
     sed "s/??SERVER_CERT??/${SIG}_server.crt/g; s/??SERVER_KEY??/${SIG}_server.key/g" nginx.conf > ${NGINX_CONF_DIR}/nginx.conf
