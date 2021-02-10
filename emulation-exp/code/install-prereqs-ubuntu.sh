@@ -16,14 +16,14 @@ NGINX_VERSION=1.17.5
 CMAKE_VERSION=3.18
 CMAKE_BUILD=3
 
-mkdir -p tmp
+rm -rf tmp && mkdir -p tmp
 cd tmp
 ROOT=$(pwd)
 
 # Fetch all the files we need
 wget https://cmake.org/files/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}.${CMAKE_BUILD}-Linux-x86_64.sh
-git clone --single-branch --branch pq-tls-experiment https://github.com/xvzcf/liboqs
-git clone --single-branch --branch pq-tls-experiment https://github.com/xvzcf/openssl
+git clone --single-branch --branch main https://github.com/open-quantum-safe/liboqs
+git clone --single-branch --branch OQS-OpenSSL_1_1_1-stable https://github.com/open-quantum-safe/openssl
 wget nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && tar -zxvf nginx-${NGINX_VERSION}.tar.gz
 
 # Install the latest CMake

@@ -4,10 +4,10 @@ import os
 import subprocess
 
 # Our experiment used POOL_SIZE = 40
-POOL_SIZE = 4
+POOL_SIZE = 31
 
 MEASUREMENTS_PER_TIMER = 100
-TIMERS = 50
+TIMERS = 40
 
 def run_subprocess(command, working_dir='.', expected_returncode=0):
     result = subprocess.run(
@@ -92,7 +92,7 @@ for latency_ms in ['2.684ms', '15.458ms', '39.224ms', '97.73ms']:
                 result.insert(0, pkt_loss)
                 csv_out.writerow(result)
 
-            for pkt_loss in range(4, 21):
+            for pkt_loss in range(4, 16):
                 change_qdisc('cli_ns', 'cli_ve', pkt_loss, delay=latency_ms)
                 change_qdisc('srv_ns', 'srv_ve', pkt_loss, delay=latency_ms)
                 result = run_timers(kex_alg, timer_pool)
